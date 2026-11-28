@@ -21,16 +21,36 @@ export default defineConfig({
 
     timeout:10*1000
   },
-
+  
  
   use: {
     
+    baseURL:"https://eventhub.rahulshettyacademy.com",
     trace: 'on-first-retry',
-    screenshot:'only-on-failure',
+    screenshot:'on',
     headless:false,
-    browserName: 'chromium'
+    retries:1,
+   
     
-  }
+  },
+  projects:[
+
+  {
+     name:'chromium',
+     use:{ ...devices['Desktop Chrome'] },
+
+  },
+  {
+     name:'firefox',
+     use:{ ...devices['Desktop Firefox'] },
+
+  },
+  {
+     name:'webkit',
+     use:{ ...devices['Desktop Safari'] },
+
+  },
+  ]
 
 });
 
